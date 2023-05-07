@@ -68,4 +68,4 @@ const options = {
   },
 };
 
-flatpickr(inputDate, options);
+flatpickr(inputDate, options); 
