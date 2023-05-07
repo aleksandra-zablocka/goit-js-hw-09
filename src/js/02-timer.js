@@ -9,6 +9,7 @@ const defaultHours = document.querySelector('[data-hours]');
 const defaultMinutes = document.querySelector('[data-minutes]');
 const defaultSeconds = document.querySelector('[data-seconds]');
 
+let counter;
 const today = new Date();
 startBtn.disabled = true;
 
