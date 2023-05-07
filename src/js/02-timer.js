@@ -4,11 +4,12 @@ import Notiflix from 'notiflix';
 
 const inputDate = document.querySelector('#datetime-picker');
 const startBtn = document.querySelector('[data-start]');
-const pickedDays = document.querySelector('[data-days]');
-const pickedHours = document.querySelector('[data-hours]');
-const pickedMinutes = document.querySelector('[data-minutes]');
-const pickedSeconds = document.querySelector('[data-seconds]');
+const defaultDays = document.querySelector('[data-days]');
+const defaultHours = document.querySelector('[data-hours]');
+const defaultMinutes = document.querySelector('[data-minutes]');
+const defaultSeconds = document.querySelector('[data-seconds]');
 
+let counter;
 const today = new Date();
 startBtn.disabled = true;
 
@@ -44,15 +45,14 @@ const options = {
       startBtn.addEventListener('click', () => {
         startBtn.disabled = true;
         let timeDifference = selectedDates[0] - today;
-        const convertedTime = convertMs(timeDifference);
         //   console.log(timeDifference);
         const timeCounter = setInterval(() => {
           convertMs(timeDifference);
           timeDifference -= 1000;
-          pickedDays.textContent = addLeadingZero(counter.days);
-          pickedHours.textContent = addLeadingZero(counter.hours);
-          pickedMinutes.textContent = addLeadingZero(counter.minutes);
-          pickedSeconds.textContent = addLeadingZero(counter.seconds);
+          defaultDays.textContent = addLeadingZero(counter.days);
+          defaultHours.textContent = addLeadingZero(counter.hours);
+          defaultMinutes.textContent = addLeadingZero(counter.minutes);
+          defaultSeconds.textContent = addLeadingZero(counter.seconds);
 
           if (timeDifference <= 0) {
             clearInterval(timeCounter);
@@ -68,4 +68,4 @@ const options = {
   },
 };
 
-flatpickr(inputDate, options); 
+flatpickr(inputDate, options);
