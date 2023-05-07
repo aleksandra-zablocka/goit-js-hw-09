@@ -9,7 +9,6 @@ const defaultHours = document.querySelector('[data-hours]');
 const defaultMinutes = document.querySelector('[data-minutes]');
 const defaultSeconds = document.querySelector('[data-seconds]');
 
-let counter;
 const today = new Date();
 startBtn.disabled = true;
 
@@ -27,6 +26,7 @@ function convertMs(ms) {
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
   //   return { days, hours, minutes, seconds };
   counter = { days, hours, minutes, seconds };
+  return counter;
 }
 
 function addLeadingZero(value) {
